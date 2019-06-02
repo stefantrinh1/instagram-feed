@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Instagram Feed
 
-## Available Scripts
+> __**Want A Simple Instagram Feed Application of Your Most Recent Content?**__  
+> __**Want To See Instagram Feed Built in React JS?**__    
+>
 
-In the project directory, you can run:
+## Intro
 
-### `npm start`
+Instagram Feed is a dynamic feed pulling data from instagrams API. It takes images, likes and comments and displays in an application. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Go To Live Project](https://instagram-feed-st.netlify.com/)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![AniCSS-Screenshot](src/media/screenshots/instagram-feed-img1.png "AniCSS Screenshot1")  
+![AniCSS-Screenshot](src/media/screenshots/instagram-feed-img2.png "AniCSS Screenshot2")
 
-### `npm test`
+## Benefits
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Prebuilt only requiring an access token and Instagrams Most used endpoint.
+- Fast and reliable
 
-### `npm run build`
+## How to Install
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. type into terminal or cmd: git clone https://github.com/stefantrinh1/instagram-feed.git
+2. npm install (requires nodeJS and npm)
+3. npm run build
+4. npm start
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+This will get the application running on local server.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Construction
 
-### `npm run eject`
+- Javascript
+- React JS
+- Instamgram API
+- SASS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Plans To Include
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Flexible number of images to pull from instagram.
+- A very basic CMS asking for number of images to pull and URL endpoint
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contact Details
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you have any questions or would like to get in touch, please contact me using the details below.
 
-## Learn More
+__**Stefan Trinh**__  
+Web Developer  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+e: stefantrinh1.work@gmail.com  
+g: https://github.com/stefantrinh1  
+w: http://www.stefantrinh.co.uk  
