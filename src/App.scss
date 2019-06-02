@@ -1,13 +1,24 @@
 .instagramApp{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
   
 }
 
+// ================================================
+// ==============   IMAGES CSS   ==================
+// ================================================
+
+
 .imageContainer{
-  width: 20%;
+  width: 33%;
   position: relative;
 }
 .imageContainer img{
@@ -16,7 +27,8 @@
 }
 
 .imageContainer:hover img {
-  filter: brightness(35%)
+  -webkit-filter: brightness(35%);
+          filter: brightness(35%)
 }
 
 .imageContainer:hover{
@@ -34,9 +46,100 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
   color:white;
 }
 .imageStats span {
   margin: 0em 0.5em;
+}
+
+
+
+// ================================================
+// ============   LOADING SCREEN   ================
+// ================================================
+
+.loadingScreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.loadingScreen .LoadingWidgetContainer img {
+  -webkit-animation: rotating 1s linear infinite;
+          animation: rotating 1s linear infinite;
+}
+@-webkit-keyframes rotating {
+  from{
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from{
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+  }
+  to{
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+  }
+}
+
+
+.loadingScreen .LoadingWidgetContainer {
+  width: 100%;
+  height: 100%;
+  background: #C13584;
+  background: linear-gradient(114deg, rgba(131,58,180,1) 0%, rgba(193,53,132,1) 50%, rgba(225,48,108,1) 100%);
+}
+
+.loadingScreen p{
+  color: white;
+  font-weight: bold;
+}
+
+.loadingScreen .loadingWidget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%)
+}
+
+@media only screen and (min-width: 480px) {
+  .imageContainer{
+    width: 25%;
+    position: relative;
+  }
+
+}
+
+@media only screen and (min-width: 767px) {
+  .imageContainer{
+    width: 20%;
+    position: relative;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .imageContainer{
+    width: 16.666%;
+    position: relative;
+  }
+
 }

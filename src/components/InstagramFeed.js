@@ -49,7 +49,15 @@ class InstagramFeed extends React.Component {
 
 
         if (isLoading) {
-            return <p>loading...</p>
+            return (
+                <div className="loadingScreen">
+                    <div className="LoadingWidgetContainer">
+                        <div className="loadingWidget">
+                            <img src={require('../media/logos/Instagram_icon.png')} alt="Instagram-Logo" />
+                            <p>loading...</p>
+                        </div>
+                    </div>
+                </div>)
         }
 
         //    console.log(JSONDATA[0])
@@ -59,21 +67,21 @@ class InstagramFeed extends React.Component {
         else {
 
             let instagramContent = InstagramJsonData.map((image) => (
-                
+
                 <div className="imageContainer" key={image.id}>
-                <a href={image.link} aria-label="Go To Instagram Post">
-                    <img src={image.images.thumbnail.url} alt="instagram-image" />
-                    <div className="imageStats">
-                        <span>
-                             ❤ {image.likes.count}
-                        </span>
-                        <span>
-                        💬 {image.comments.count}
-                        </span>
-                    </div>
+                    <a href={image.link} aria-label="Go To Instagram Post">
+                        <img src={image.images.thumbnail.url} alt="instagram-image" />
+                        <div className="imageStats">
+                            <span>
+                                ❤ {image.likes.count}
+                            </span>
+                            <span>
+                                💬 {image.comments.count}
+                            </span>
+                        </div>
                     </a>
                 </div>
-                
+
 
             ))
             return (<div className="instagramApp">{instagramContent}</div>)
