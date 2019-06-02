@@ -1,6 +1,6 @@
 import React from "react";
-import Likes from "./Likes";
-import Comments from "./Comments";
+// import Likes from "./Likes";
+// import Comments from "./Comments";
 
 class Image extends React.Component {
 
