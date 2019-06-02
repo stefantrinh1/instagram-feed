@@ -1,0 +1,42 @@
+.instagramApp{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  
+}
+
+.imageContainer{
+  width: 20%;
+  position: relative;
+}
+.imageContainer img{
+  width: 100%;
+  height:100%;
+}
+
+.imageContainer:hover img {
+  filter: brightness(35%)
+}
+
+.imageContainer:hover{
+  position: relative;
+}
+
+.imageContainer:hover .imageStats{
+  display: block;
+}
+
+.imageStats{
+  width: 100%;
+  text-align: center;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color:white;
+}
+.imageStats span {
+  margin: 0em 0.5em;
+}
