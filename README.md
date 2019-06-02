@@ -10,8 +10,7 @@ Instagram Feed is a dynamic feed pulling data from instagrams API. It takes imag
 
 - [Go To Live Project](https://instagram-feed-st.netlify.com/)
 
-![AniCSS-Screenshot](src/media/screenshots/instagram-feed-img1.png "AniCSS Screenshot1")  
-![AniCSS-Screenshot](src/media/screenshots/instagram-feed-img2.png "AniCSS Screenshot2")
+![AniCSS-Screenshot](src/media/screenshots/instagram-feed-img1.jpg "AniCSS Screenshot1")
 
 ## Benefits
 
