@@ -70,7 +70,8 @@ class InstagramFeed extends React.Component {
 
                 <div className="imageContainer" key={image.id}>
                     <a href={image.link} aria-label="Go To Instagram Post">
-                        <img src={image.images.thumbnail.url} alt="instagram-image" />
+                        <div className="imageFill"></div>
+                        <img src={image.images.standard_resolution.url} alt="instagram-image" />
                         <div className="imageStats">
                             <span>
                                 ❤ {image.likes.count}
