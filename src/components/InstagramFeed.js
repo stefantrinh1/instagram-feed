@@ -1,5 +1,5 @@
 import React from 'react';
-// import Image from './Image';
+
 
 class InstagramFeed extends React.Component {
 
@@ -7,6 +7,7 @@ class InstagramFeed extends React.Component {
         instagramJson: ["loading"],
         isLoading: true,
         error: null
+    
     }
 
     componentDidMount() {
@@ -16,14 +17,17 @@ class InstagramFeed extends React.Component {
             isLoading: true
         })
 
-        fetch('https://api.instagram.com/v1/users/self/media/recent/?=&access_token=2116304243.0917c89.a0bcdda6581d476bb24e31fcf5154f18')
+        const instagramQuery = "https://api.instagram.com/v1/users/self/media/recent/?=&access_token="
+        const accessToken = "2116304243.0917c89.a0bcdda6581d476bb24e31fcf5154f18"
+
+        fetch(`${instagramQuery+accessToken}`)
             .then(response => response.json())
             .then(data =>
                 this.setState({
                     instagramJson: data,
                     isLoading: false
-                })
-                // .catch(error => this.setState({ isLoading: false }))
+                }))
+            .catch(error => console.error('Error:', error)
 
             )
 
@@ -33,14 +37,6 @@ class InstagramFeed extends React.Component {
         console.log("component updated")
 
     }
-
-    componentWillUpdate() {
-
-    }
-
-
-
-
 
     render() {
         const { isLoading, error } = this.state
