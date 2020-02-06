@@ -1,11 +1,14 @@
 import React from 'react';
-
+import "./InstagramFeed.scss";
+// const ReactMarkdown = require('react-markdown/with-html');
 
 class InstagramFeed extends React.Component {
 
     state = {
         instagramJson: ["loading"],
+        instagramUserJson: null,
         isLoading: true,
+        isUserDataLoading: true,
         error: null,
         NumberPhotosToLoad: this.props.NumberPhotosToLoad,
         accessToken: this.props.accessToken
@@ -13,14 +16,14 @@ class InstagramFeed extends React.Component {
 
     componentDidMount() {
         console.log("component did mount");
-
         this.setState({
             isLoading: true
         })
 
-        const instagramQuery = "https://api.instagram.com/v1/users/self/media/recent/?=&access_token="
+        const instagramQuery = "https://api.instagram.com/v1/users/self/media/recent/?=&access_token=";
+        const instagramUserQuery = "https://api.instagram.com/v1/users/self/?access_token=";
 
-        fetch(`${instagramQuery+this.state.accessToken}`)
+        fetch(`${instagramQuery + this.state.accessToken}`)
             .then(response => response.json())
             .then(data => {
                 const InstagramDataList = data.data.slice(0, this.state.NumberPhotosToLoad)
@@ -28,18 +31,29 @@ class InstagramFeed extends React.Component {
                     instagramJson: InstagramDataList,
                     isLoading: false
                 })
+               
             }
-                )
-                
-            .catch(error => console.error('Error:', error)
-
             )
+            .catch(error => { 
+                this.setState({ isLoading: false, error:error })
+        })
 
+        fetch(`${instagramUserQuery + this.state.accessToken}`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    instagramUserJson: data,
+                    isUserDataLoading: false
+                })
+            
+            }
+            )
+            .catch(error => { 
+                console.log(error)
+                this.setState({ isLoading: false, error:error })
+        })
     }
-
     componentDidUpdate() {
-        console.log("component updated")
-
     }
 
     render() {
@@ -62,11 +76,13 @@ class InstagramFeed extends React.Component {
 
         if (error) {
             return (
-                <div>
-                    <p>
-                        Loading Error. Please Try Again Later.
-
-                    </p>
+                <div style={{textAlign:"center"}}>
+                    <h1>
+                        Opps. There Was A Loading Error.
+                    </h1>
+                    <h4>
+                        Please Try Again Later.
+                    </h4>
                 </div>)
         }
 
@@ -114,6 +130,7 @@ class InstagramFeed extends React.Component {
                                         </g>
                                     </g>
                                 </svg>
+
                                 {image.comments.count}
                             </span>
                         </div>
@@ -122,18 +139,42 @@ class InstagramFeed extends React.Component {
 
 
             ))
-            return (<div className="instagramApp">{instagramContent}</div>)
+
+            const instagramUserData = this.state.instagramUserJson.data
+
+            return (<div className="instagramApp">
+
+                <div className="instagramUserData">
+                    <div className="instagram__profilepicturecontainer">
+                    <a href={`https://www.instagram.com/${instagramUserData.username}`}><img className="instagram__profilepicture" src={instagramUserData.profile_picture} alt="profile pictures" /></a>
+                    </div>
+                    <div className="instagram__content">
+                        <h2 className="instagram__username">{instagramUserData.username}</h2>
+        
+                        <div className="instagram__usercounts">
+                            <p><strong>{instagramUserData.counts.media}</strong> Posts</p>
+                            <a href={`https://www.instagram.com/${instagramUserData.username}`}><p><strong>{instagramUserData.counts.follows}</strong> Followers</p></a>
+                            <a href={`https://www.instagram.com/${instagramUserData.username}`}><p><strong>{instagramUserData.counts.followed_by}</strong> Following</p></a>
+                        </div>
+                        <p className="instagram__fullname">{instagramUserData.full_name}</p>
+                        <p className="instagram__bio">{instagramUserData.bio}</p>
+                        <p className="instagram__website"><a href={instagramUserData.website}>{instagramUserData.website}</a></p>
+                    </div>
+
+
+                </div>
+
+                {instagramContent}
+
+            </div>)
 
         }
-
-
     }
 }
 
 InstagramFeed.defaultProps = {
-    accessToken:"2116304243.0917c89.a0bcdda6581d476bb24e31fcf5154f18",
+    accessToken: "2116304243.1677ed0.35617ad9245c4b39b919e6c3a036fd7e",
     NumberPhotosToLoad: 20,
-  };
-
+};
 
 export default InstagramFeed
